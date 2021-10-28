@@ -3,14 +3,21 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bank/auth/authentication.dart';
+import 'package:flutter_bank/screens/home/bloc/bottom_navigation/bottom_navigation_bloc.dart';
+import 'package:flutter_bank/screens/home/bottom_nav.dart';
 import 'package:flutter_bank/screens/home/home_screen.dart';
 import 'package:flutter_bank/screens/signup_screen/sign_up_screen.dart';
 import 'package:flutter_bank/theme/color_theme.dart';
 import 'package:flutter_bank/theme/text_theme.dart';
 import 'package:flutter_bank/widgets/my_snack_bar.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AuthScreen extends StatefulWidget {
   AuthScreen({Key? key}) : super(key: key);
+
+
+
+
 
   @override
   State<AuthScreen> createState() => _AuthScreenState();
@@ -39,6 +46,7 @@ class _AuthScreenState extends State<AuthScreen> {
 
   @override
   Widget build(BuildContext context) {
+
     print("_firebaseAuth.currentUser!.email");
     print(_firebaseAuth.currentUser?.email);
 
@@ -125,7 +133,10 @@ class _AuthScreenState extends State<AuthScreen> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => HomeScreen(),
+                            builder: (context) => BlocProvider(
+                              create: (context) => BottomNavigationBloc(),
+                              child: MainScreen(),
+                            ),
                           ));
                     } else {
                       ScaffoldMessenger.of(context)
@@ -140,7 +151,7 @@ class _AuthScreenState extends State<AuthScreen> {
                       borderRadius: BorderRadius.circular(28),
                     )),
                     backgroundColor:
-                        MaterialStateProperty.all(AppColors.blue_main),
+                        MaterialStateProperty.all(AppColors.blueMain),
                   ),
                 ),
               ),
@@ -184,7 +195,7 @@ class _AuthScreenState extends State<AuthScreen> {
           decoration: const InputDecoration(
             prefixIcon: Icon(
               Icons.person,
-              color: AppColors.blue_main,
+              color: AppColors.blueMain,
             ),
           ),
         ),
@@ -199,7 +210,7 @@ class _AuthScreenState extends State<AuthScreen> {
           decoration: InputDecoration(
             prefixIcon: const Icon(
               Icons.lock,
-              color: AppColors.blue_main,
+              color: AppColors.blueMain,
             ),
             suffixIcon: GestureDetector(
               onTap: () {
@@ -210,11 +221,11 @@ class _AuthScreenState extends State<AuthScreen> {
               child: isObscureText
                   ? const Icon(
                       Icons.remove_red_eye,
-                      color: AppColors.blue_main,
+                      color: AppColors.blueMain,
                     )
                   : const Icon(
                       Icons.remove_red_eye_outlined,
-                      color: AppColors.blue_main,
+                      color: AppColors.blueMain,
                     ),
             ),
           ),

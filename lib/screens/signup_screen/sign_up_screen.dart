@@ -157,7 +157,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       borderRadius: BorderRadius.circular(28),
                     )),
                     backgroundColor:
-                        MaterialStateProperty.all(AppColors.blue_main),
+                        MaterialStateProperty.all(AppColors.blueMain),
                   ),
                 ),
               ),
@@ -197,7 +197,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
             hintText: "email",
             prefixIcon: Icon(
               Icons.person,
-              color: AppColors.blue_main,
+              color: AppColors.blueMain,
             ),
           ),
 
@@ -220,7 +220,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
             hintText: 'password',
             prefixIcon: const Icon(
               Icons.lock,
-              color: AppColors.blue_main,
+              color: AppColors.blueMain,
             ),
             suffixIcon: GestureDetector(
               onTap: () {
@@ -231,11 +231,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
               child: _isObscureText
                   ? const Icon(
                       Icons.remove_red_eye,
-                      color: AppColors.blue_main,
+                      color: AppColors.blueMain,
                     )
                   : const Icon(
                       Icons.remove_red_eye_outlined,
-                      color: AppColors.blue_main,
+                      color: AppColors.blueMain,
                     ),
             ),
           ),
